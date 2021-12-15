@@ -1,0 +1,6 @@
+*.pyc
+*.wav
+*.ipynb
+.ipynb_checkpoints/*
+.idea/*
+LJSpeech-1.1/*
