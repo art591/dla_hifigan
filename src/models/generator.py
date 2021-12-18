@@ -19,21 +19,10 @@ class ResBlockConv(nn.Module):
         return self.conv(x)
 
 
-class ResBlock(nn.Module):
-    def __init__(self, channels, k_n, D_r_n):
-        super().__init__()
-        self.layers = nn.ModuleList([ResBlockConv(channels, k_n, D_r_n) for i in range(len(D_r_n))])
-
-    def forward(self, x):
-        for i in range(len(self.layers)):
-            x = x + self.layers[i](x)
-        return x
-
-
 class MRF(nn.Module):
     def __init__(self, channels, k_r, D_r):
         super().__init__()
-        self.resblocks = nn.ModuleList([ResBlock(channels, k_r[i], D_r[i]) for i in range(len(D_r))])
+        self.resblocks = nn.ModuleList([ResBlockConv(channels, k_r[i], D_r[i]) for i in range(len(D_r))])
 
     def forward(self, x):
         for i in range(len(self.resblocks)):
@@ -71,9 +60,3 @@ class Generator(nn.Module):
         x = self.middle(x)
         x = self.last(x)
         return x
-
-
-
-
-
-
