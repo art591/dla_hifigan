@@ -1,5 +1,4 @@
 *.pyc
-*.wav
 *.ipynb
 .ipynb_checkpoints/*
 .idea/*
