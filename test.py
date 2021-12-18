@@ -6,10 +6,10 @@ from src.data.melspectrogram import MelSpectrogram, MelSpectrogramConfig
 from src.models.generator import Generator
 
 
-TEST_TRUE_AUDIO_DIR = 'test/true/'
-PRED_AUDIO_DIR = 'test/pred/'
+TEST_TRUE_AUDIO_DIR = 'test_data/true/'
+PRED_AUDIO_DIR = 'test_data/pred/'
 SAMPLE_RATE = 22050
-MODEL_PATH = 'first_try/generator.pth'
+MODEL_PATH = 'generator.pth'
 device = 'cuda'
 featurizer = MelSpectrogram(MelSpectrogramConfig()).to(device)
 
